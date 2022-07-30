@@ -34,6 +34,9 @@ Bahasa Indonesia
 English Language
 ![template_s](https://github.com/Fall-Xavier/zmbf/blob/main/asset/Screenshot_2022-07-31-00-47-13-38_84d3000e3f4017145260f7618db1d683.jpg)
 
+### Hasil Crack/Result Crack
+![template_s](https://github.com/Fall-Xavier/zmbf/blob/main/asset/IMG_20220702_154036.jpg)
+
 ## Catatan/Notes
 Bahasa Indonesia
 ```
