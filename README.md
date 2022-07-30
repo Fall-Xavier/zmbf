@@ -3,7 +3,7 @@
 
 ### Apk Untuk Menjalankan Tools/App To Run Tools
 
-Link : [download termux](https://f-droid.org/repo/com.termux_118.apk)
+Link : [Klik/Click Link](https://f-droid.org/repo/com.termux_118.apk)
 
 ### Cara Install/How To Install
 ```
@@ -40,11 +40,11 @@ English Language
 ## Support Device Or No
 Bahasa Indonesia
 ```
-untuk sekarang hanya support device 'aarch64'. silahkan cek device kalian dengan cara ketik 'python --version'
+Untuk sekarang hanya support device 'aarch64'. silahkan cek device kalian dengan cara ketik 'python --version'
 ```
 English Language
 ```
-for now only support device 'aarch64'. please check your device by typing 'python --version'
+For now only support device 'aarch64'. please check your device by typing 'python --version'
 ```
 
 ## Catatan/Notes
