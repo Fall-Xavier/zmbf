@@ -1,41 +1,16 @@
-<h1 align="center"><b>Zero Multi Bruteforce Facebook</b></h1>
-
-<div align="center">
-  <a href="https://github.com/Fall-Xavier">
-    <img alt="Python 3.10^" src="https://img.shields.io/badge/Python-3.10^-success.svg"/>
-  </a>
-  <a href="https://github.com/Fall-Xavier">
-    <img alt="Last Commit" src="https://img.shields.io/github/last-commit/Fall-Xavier/mtf.svg"/>
-  </a>
-   <a href="https://github.com/Fall-Xavier">
-    <img alt="Repo Size" src="https://img.shields.io/github/repo-size/Fall-Xavier/mtf.svg"/>
-  </a>
-  <a href="https://github.com/Fall-Xavier">
-    <img alt="Starts" src="https://img.shields.io/github/stars/Fall-Xavier/mtf.svg"/>
-  </a>
-  <a href="https://github.com/Fall-Xavier">
-    <img alt="Forks" src="https://img.shields.io/github/forks/Fall-Xavier/mtf.svg"/>
-  </a>
-</div>
-<br>
+<h1 align="center"><b>Multiple Tools for Facebook (MTF)</b></h1>
 
 Jika kamu menggunakan Termux Android silahkan download Termux dari link dibawah ini jangan dari <b>PlayStore</b>.
 
 Link download Termux: [https://f-droid.org/repo/com.termux_118.apk](https://f-droid.org/repo/com.termux_118.apk)
 
-## Pasang paket dan clone repository
+## Cara Install/How To Install
 ```sh
-pkg update -y
-pkg upgrade -y
-pkg install python git clang curl
+pkg update && pkg upgrade
+pkg install git python
 python -m pip install --upgrade pip
 cd $HOME
-git clone https://github.com/lumine-id/mtf
-```
-
-## Masuk ke folder MTF
-```sh
-cd $HOME/mtf
+git clone https://github.com/Fall-Xavier/zmbf
 ```
 
 ## Setup
