@@ -3,7 +3,7 @@
 
 ### Apk Untuk Menjalankan Tools/App To Run Tools
 
-Link : [Klik/Click Link](https://f-droid.org/repo/com.termux_118.apk)
+Link : [Klik Disini/Click Here](https://f-droid.org/repo/com.termux_118.apk)
 
 ### Cara Install/How To Install
 ```
