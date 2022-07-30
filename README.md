@@ -37,6 +37,16 @@ English Language
 ### Hasil Crack/Result Crack
 ![template_s](https://github.com/Fall-Xavier/zmbf/blob/main/asset/IMG_20220702_154036.jpg)
 
+## Support Device Or No
+Bahasa Indonesia
+```
+untuk sekarang hanya support device 'aarch64'. silahkan cek device kalian dengan cara ketik 'python --version'
+```
+English Language
+```
+for now only support device 'aarch64'. please check your device by typing 'python --version'
+```
+
 ## Catatan/Notes
 Bahasa Indonesia
 ```
