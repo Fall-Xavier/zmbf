@@ -2,7 +2,7 @@
 
 ## Apk Untuk Menjalankan Tools/App To Run Tools
 
-Link : [https://f-droid.org/repo/com.termux_118.apk](https://f-droid.org/repo/com.termux_118.apk)
+Link : [download termux](https://f-droid.org/repo/com.termux_118.apk)
 
 ## Cara Install/How To Install
 ```sh
@@ -26,11 +26,7 @@ chmod 777 run
 cd $HOME/zmbf
 ./run
 ```
-Dan selamat menggunakan ðŸ¤—
 
-## Disclaimer
+## Catatan/Notes
 Kami tidak bertanggung jawab atas segala kerusakan yang disebabkan oleh alat Ini.
-
-## Ada pertanyaan?
-Kebingungan cara pasang Tools nya atau mungkin mengalami masalah? ðŸ¤”
-Silahkan tanya mengenai masalahmu ke Pengembang!
+We are not responsible for any damage caused by this tool.
