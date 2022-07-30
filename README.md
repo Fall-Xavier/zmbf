@@ -13,18 +13,17 @@ cd $HOME
 git clone https://github.com/Fall-Xavier/zmbf
 ```
 
-## Setup
-Jika kamu baru pertama pasang MTF silahkan jalankan perintah dibawah ini
+## Jika Pertama Kali Install/How To First Install
 ```sh
+cd $HOME/zmbf
 python -m pip install -r requirements.txt
-python setup.py
+chmod 777 run
+./run
 ```
-Tunggu sampe proses compile selesai, mungkin memerlukan waktu sedikit lama.
 
-## Akhirnya
-Sekarang tinggal jalanin perintah ini untuk menjalankan MTF
+## Cara Menjalankan/How To Run
 ```sh
-cd $HOME/mtf
+cd $HOME/zmbf
 ./run
 ```
 Dan selamat menggunakan ðŸ¤—
