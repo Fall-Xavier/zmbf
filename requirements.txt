@@ -1,0 +1,6 @@
+requests
+futures
+bs4
+rich
+pyzipper
+platform
