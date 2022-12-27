@@ -68,17 +68,23 @@ class Logo:
 ###----------[ BAGIAN LOGIN ]---------- ###
 class Login:
 	
+	###----------[ FUNCTION INIT ]---------- ###
+	def __init__(self):
+		self.ip = ses.get("http://ip-api.com/json/").json()["query"]
+		self.negara = ses.get("http://ip-api.com/json/").json()["country"]
+
 	###----------[ MENU LOGIN ]---------- ###
 	def menu_login(self):
 		Logo().logonya()
+		prints(Panel(f"{P2}{self.ip}",padding=(0,30),subtitle=f"{H2}{self.negara}",style=f"{color_panel}"))
 		prints(Panel(f"""{P2}[{color_text}01{P2}]. login menggunakan cookie facebook
 [{color_text}02{P2}]. login menggunakan kredensial""",width=80,padding=(0,15),style=f"{color_panel}"))
 		login = console.input(f" {H2}• {P2}pilih menu : ")
 		if login in["1","01"]:
 			prints(Panel(f"""{P2}silahkan masukan cookiemu disini dan pastikan autentikasi tidak aktif""",width=80,style=f"{color_panel}"))
 			cookie = console.input(f" {H2}• {P2}masukan cookie : ")
-			open("data/cookie","w").write(cookie)
-			login_cookie(cookie)
+			#open("data/cookie","w").write(cookie)
+			self.login_cookie(cookie)
 		else:
 			exit(prints(Panel(f"""{M2}🙏 maaf fitur ini belum tersedia, silahkan menunggu update selanjutnya""",width=80,style=f"{color_panel}")))
 			
@@ -165,7 +171,7 @@ class Menu:
 			
 		###----------[ KOMENTAR ]---------- ###
 		elif menu in["3","03"]:
-			prints(Panel(f"""{P2}masukan id target, pastikan id target bersifat publik dan tidak private""",subtitle=f"{P2}ketik {H2}me{P2} untuk dump dari teman sendiri",width=80,style=f"{color_panel}"))
+			prints(Panel(f"""{P2}masukan id postingan, pastikan postingan bersifat publik dan tidak private""",width=80,style=f"{color_panel}"))
 			user = console.input(f" {H2}• {P2}masukan id postingan : ")
 			Dump(cookie).Dump_Komentar(f"https://mbasic.facebook.com/{user}")
 			Crack().atursandi()
@@ -467,6 +473,9 @@ class Lain:
 			self.ganti_tema()
 		elif menu in["05","5"]:
 			self.tampil_cookie()
+		elif menu in["06","6"]:
+			os.system("rm data/cookie")
+			exit(prints(Panel(f"""{H2}berhasil menghapus cookie, silahkan ketik ulang python run.py""",width=80,style=f"{color_panel}")))
 		else:
 			exit(prints(Panel(f"""{M2}🙏 maaf fitur ini belum tersedia, silahkan menunggu update selanjutnya""",width=80,style=f"{color_panel}")))
 
