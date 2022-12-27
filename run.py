@@ -290,10 +290,9 @@ class Dump:
 					if uid+"<=>"+nama in tampung:pass
 					else:tampung.append(uid+"<=>"+nama)
 					console.print(f" {H2}• {P2}sedang proses mengumpulkan id, berhasil mendapatkan {len(tampung)} id....", end="\r")
-			for z in data.find_all("a",href=True):
-				if "Lihat Postingan Lainnya</span" in str(z).split(">"):
-					href = str(z).replace('<a href="','').replace("amp;","").split(" ")[0].replace('"><span>Lihat','')
-					self.Dump_MemberGrup("https://m.facebook.com"+href)
+			for x in data.find_all("a",href=True):
+				if "Lihat Postingan Lainnya" in x.text:
+					self.Dump_MemberGrup("https://mbasic.facebook.com"+x.get("href"))
 		except:pass
 		
 	###----------[ DUMP FILE ]---------- ###
