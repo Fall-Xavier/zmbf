@@ -93,10 +93,21 @@ class Login:
 		try:
 			url = ses.get("https://mbasic.facebook.com/",cookies={"cookie": cookie}).text
 			if "Apa yang Anda pikirkan sekarang" in url:
-				open("data/cookie","w").write(cookie)
+				pass
 			else:
-				self.ubah_bahasa(cookie)
-				open("data/cookie","w").write(cookie)
+				for z in url.find_all("a",href=True):
+					if "Tidak, Terima Kasih" in z.text:
+						get = ses.get("https://mbasic.facebook.com"+z["href"],cookies=cookie)
+						parsing = parser(get.text,"html.parser")
+						action = parsing.find("form",{"method":"post"})["action"]
+						data = {
+							"fb_dtsg":re.search('name="fb_dtsg" value="(.*?)"', str(get.text)).group(1),
+							"jazoest":re.search('name="jazoest" value="(.*?)"', str(get.text)).group(1),
+							"submit": "OK, Gunakan Data"
+						}
+						post = ses.post("https://mbasic.facebook.com"+action,data=data,cookies=cookie)
+						break
+			open("data/cookie","w").write(cookie)
 			Menu().menu()
 		except:
 			prints(Panel(f"""{M2}cookie invalid, silahkan gunakan cookie lain yang masih baru atau fresh""",width=80,style=f"{color_panel}"))
@@ -569,7 +580,7 @@ class Session:
 		versi_android = random.randint(4,12)
 		versi_chrome = str(random.randint(300,325))+".0.0."+str(random.randint(1,8))+"."+str(random.randint(40,150))
 		versi_app = random.randint(410000000,499999999)
-		ugent = f"Dalvik/2.1.0 (Linux; U; Android {versi_android}; vivo 2019 Build/QP1A.190711.020) [FBAN/MessengerLite;FBAV/{versi_chrome};FBPN/com.facebook.mlite;FBLC/in_ID;FBBV/{versi_app};FBCR/3;FBMF/vivo;FBBD/vivo;FBDV/vivo 2019;FBSV/{str(random.randint(4,10))};FBCA/arm64-v8a:null;FBDM/"+"{density=2.0,width=720,height=1412};]"
+		ugent = f"Dalvik/2.1.0 (Linux; U; Android {versi_android}; 21061119DG Build/RP1A.200720.011) [FBAN/MessengerLite;FBAV/{versi_chrome};FBPN/com.facebook.mlite;FBLC/in_ID;FBBV/{versi_app};FBCR/3;FBMF/xiaomi;FBBD/xiaomi;FBDV/21061119DG;FBSV/{str(random.randint(4,10))};FBCA/arm64-v8a:null;FBDM/"+"{density=2.0,width=720,height=1412};]"
 		return ugent
 		
 if __name__=="__main__":
@@ -580,3 +591,5 @@ if __name__=="__main__":
 	try:os.mkdir("data")
 	except:pass
 	Menu().menu()
+#Gunakan Facebook dalam mode dasar dengan Telkomsel
+
