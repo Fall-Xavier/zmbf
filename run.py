@@ -490,10 +490,9 @@ class Crack:
 					if user in self.ok or user in self.cp:
 						break
 					else:
-						self.ok.append(user)
+						self.cp.append(user)
 						tree = Tree("                                 ")
-						tree.add(f"\r{H2}{user}|{pw}{P2} ")
-						tree.add(f"{H2}{coki}{P2}")
+						tree.add(f"\r{K2}{user}|{pw}{P2} ")
 						prints(tree)
 						open(f"CP/{self.hari_ini}.txt","a").write(f"{user}|{pw}\n")
 						break
