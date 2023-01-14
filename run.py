@@ -47,7 +47,7 @@ versi_app = str(random.randint(111111111,999999999))
 for z in range(200):
 	versi_android = str(random.randint(4,12))+".0.0"
 	versi_chrome = str(random.randint(300,325))+".0.0."+str(random.randint(1,8))+"."+str(random.randint(40,150))
-	ua = f"Dalvik/2.1.0 (Linux; U; Android {versi_android} ; L-03K Build/PKQ1.190522.001) [FBAN/MessengerLite;FBAV/{versi_chrome};FBPN/com.facebook.mlite;FBLC/en_US;FBBV/{versi_app};FBCR/Airtel;FBMF/Facebook;Facebook/lge;FBBD/L-03K;FBDV/L-03K;FBSV/{versi_android} ;FBCA/armeabi-v7a:armeabi;FBDM/"+"{density=2.75,width=1080,height=2179};FB_FW/1;])"
+	ua = f"Dalvik/2.1.0 (Linux; U; Android {versi_android} ; FEVER Build/MRA58K) [FBAN/MessengerLite;FBAV/{versi_chrome};FBPN/com.facebook.mlite;FBLC/en_US;FBBV/{versi_app};FBCR/Airtel;FBMF/Facebook/lge;FBBD/FEVER;FBDV/FEVER;FBSV/{versi_android};FBCA/armeabi-v7a:armeabi;FBDM/"+"{density=2.75,width=1080,height=2179};FB_FW/1;])"
 	if ua in ugent:pass
 	else:ugent.append(ua)
 	
