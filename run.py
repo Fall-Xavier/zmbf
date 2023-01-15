@@ -77,9 +77,9 @@ class Logo:
   //  \__  |: \.        |(|  _  \\  // ___)     {P2}██████████████████████[/]
  (:   / "\ |.  \    /:  ||: |_)  :)(:  (      
   \_______)|___|\__/|___|(_______/  \__/      Made By {M2}Indonesia {P2}Coder
-{B2}╭──────────────────────╮{B2}╭───────────────╮{B2}╭────────────────────────────╮
-{B2}│ {P2}Author : Fall Xavier {B2}│{B2}│ {P2}Version : 2.0 {B2}│{B2}│ {P2}Dont't Recode My Tools Bro {B2}│
-{B2}╰──────────────────────╯{B2}╰───────────────╯{B2}╰────────────────────────────╯""",width=80,style=f"{color_panel}"))
+{color_text}╭──────────────────────╮{color_text}╭───────────────╮{color_text}╭────────────────────────────╮
+{color_text}│ {P2}Author : Fall Xavier {color_text}│{color_text}│ {P2}Version : 2.0 {color_text}│{color_text}│ {P2}Dont't Recode My Tools Bro {color_text}│
+{color_text}╰──────────────────────╯{color_text}╰───────────────╯{color_text}╰────────────────────────────╯""",width=80,style=f"{color_panel}"))
 	
 ###----------[ BAGIAN LOGIN ]---------- ###
 class Login:
@@ -211,10 +211,11 @@ class Menu:
 			
 		###----------[ KOMENTAR ]---------- ###
 		elif menu in["4","04"]:
-			prints(Panel(f"""{P2}masukan nama untuk email, format email akan selalu @gmail.com""",width=80,style=f"{color_panel}"))
+			prints(Panel(f"""{P2}masukan nama dan format email gunakan '@' di awal contoh @gmail.com""",width=80,style=f"{color_panel}"))
 			user = console.input(f" {H2}• {P2}masukan nama : ")
+			format = console.input(f" {H2}• {P2}masukan format : ")
 			limit = console.input(f" {H2}• {P2}masukan limit : ")
-			Dump(cookie).Dump_Email(user,limit)
+			Dump(cookie).Dump_Email(user,format,limit)
 			Crack().atursandi()
 			
 		###----------[ PENCARIAN NAMA ]---------- ###
@@ -351,10 +352,13 @@ class Dump:
 		except:pass
 		
 	###----------[ DUMP FILE ]---------- ###
-	def Dump_Email(self,nama,limit):
+	def Dump_Email(self,nama,format,limit):
 		try:
 			for z in range(int(limit)):
-				email = nama+str(z)+"@gmail.com<=>"+nama
+				if len(nama.split()) > 1:
+					email = str(nama.split()[0])+str(nama.split()[1])+str(z)+str(format)+"<=>"+str(nama.split()[0])+" "+str(nama.split()[1])
+				else:
+					email = str(nama)+str(z)+str(format)+"<=>"+str(nama)
 				if email in tampung:pass
 				else:tampung.append(email)
 		except:pass
