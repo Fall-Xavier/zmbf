@@ -47,7 +47,7 @@ versi_app = str(random.randint(111111111,999999999))
 for z in range(200):
 	versi_android = str(random.randint(4,12))+".0.0"
 	versi_chrome = str(random.randint(300,325))+".0.0."+str(random.randint(1,8))+"."+str(random.randint(40,150))
-	ua = f"Dalvik/2.1.0 (Linux; U; Android {versi_android}; LDN-L21 Build/HUAWEILDN-L21) [FBAN/MessengerLite;FBAV/{versi_chrome};FBBV/155323366;FBDM/"+"{density=2.0,width=720,height=1360}"+";FBLC/en_US;FBRV/156625696;FBCR/mt:s;FBMF/HUAWEI;FBBD/HUAWEI;FBPN/com.facebook.mlite;FBDV/LDN-L21;FBSV/{versi_android};FBOP/19;FBCA/armeabi-v7a:armeabi;]"
+	ua = f"Dalvik/2.1.0 (Linux; U; Android {versi_android}; vivo 1606 Build/MMB29M) [FBAN/MessengerLite;FBAV/{versi_chrome};FBBV/181448449;FBDM/"+"{density=1.5,width=540,height=960};"+"FBLC/en_US;FBRV/183119516;FBCR/TM;FBMF/vivo;FBBD/vivo;FBPN/com.facebook.mlite;FBDV/vivo 1606;FBSV/{versi_android};FBOP/1;FBCA/armeabi-v7a:armeabi;]"
 #[FBAN/MessengerLite;FBAV/{versi_chrome};FBPN/com.facebook.mlite;FBLC/en_US;FBBV/{versi_app};FBCR/Airtel;FBMF/Facebook/lge;FBBD/FEVER;FBDV/FEVER;FBSV/{versi_android};FBCA/armeabi-v7a:armeabi;FBDM/"+"{density=2.75,width=1080,height=2179};FB_FW/1;])"
 	if ua in ugent:pass
 	else:ugent.append(ua)
@@ -483,9 +483,9 @@ class Crack:
 						break
 					else:
 						self.ok.append(user)
-						tree = Tree("                                 ")
+						tree = Tree(" ",guide_style=f"{color_panel}")
 						tree.add(f"\r{H2}{user}|{pw}{P2} ")
-						tree.add(f"{H2}{coki}{P2}")
+						tree.add(Panel(f"{H2}{coki}{P2}",style=f"{color_panel}"))
 						prints(tree)
 						open(f"OK/{self.hari_ini}.txt","a").write(f"{user}|{pw}|{coki}\n")
 						break
@@ -495,7 +495,7 @@ class Crack:
 						break
 					else:
 						self.cp.append(user)
-						tree = Tree("                                 ")
+						tree = Tree(" ",guide_style=f"{color_panel}")
 						tree.add(f"\r{K2}{user}|{pw}{P2} ")
 						prints(tree)
 						open(f"CP/{self.hari_ini}.txt","a").write(f"{user}|{pw}\n")
@@ -577,11 +577,11 @@ class Lain:
 		for akun in totalhasil:
 			user = akun.split("|")[0]
 			pw = akun.split("|")[1]
-			tree = Tree(" ")
+			tree = Tree(" ",guide_style=f"{color_panel}")
 			if folder=="OK":
 				cookie = akun.split("|")[2]
 				tree.add(f"\r{H2}{user}|{pw}{P2} ")
-				tree.add(f"{H2}{cookie}{P2}")
+				tree.add(Panel(f"{H2}{cookie}{P2}",style=f"{color_panel}"))
 			else:
 				tree.add(f"\r{K2}{user}|{pw}{P2} ")
 			prints(tree)
