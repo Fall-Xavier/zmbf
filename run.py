@@ -47,7 +47,7 @@ versi_app = str(random.randint(111111111,999999999))
 for z in range(200):
 	versi_android = str(random.randint(4,12))+".0.0"
 	versi_chrome = str(random.randint(300,325))+".0.0."+str(random.randint(1,8))+"."+str(random.randint(40,150))
-	ua = f"Dalvik/2.1.0 (Linux; U; Android {versi_android}; Nokia 7 plus Build/QKQ1.190828.002) [FBAN/MessengerLite;FBAV/{versi_chrome};FBBV/156649505;FBDM/"+"{density=2.625,width=1080,height=2034};"+"FBLC/en_US;FBRV/0;FBCR/Telia;FBMF/HMD Global;FBBD/Nokia;FBPN/com.facebook.mlite;FBDV/Nokia 7 plus;FBSV/{versi_android};FBOP/1;FBCA/armeabi-v7a:armeabi;]"
+	ua = f"Dalvik/2.1.0 (Linux; U; Android {versi_android}; Nexus Player Build/MMB29T) [FBAN/MessengerLite;FBAV/{versi_chrome};FBBV/156649505;FBDM/"+"{density=2.625,width=1080,height=2034};"+"FBLC/sv_SE;FBRV/0;FBCR/Telia;FBMF/HMD Global;FBBD/Nexus;FBPN/com.facebook.mlite;FBDV/Nexus Player;FBSV/{versi_android};FBOP/1;FBCA/armeabi-v7a:armeabi;]"
 #FBDM/"+"{density=1.5,width=540,height=960};"+"FBLC/en_US;FBRV/183119516;FBCR/TM;FBMF/vivo;FBBD/vivo;FBPN/com.facebook.mlite;FBDV/vivo 1606;FBSV/{versi_android};FBOP/1;FBCA/armeabi-v7a:armeabi;]"
 #[FBAN/MessengerLite;FBAV/{versi_chrome};FBPN/com.facebook.mlite;FBLC/en_US;FBBV/{versi_app};FBCR/Airtel;FBMF/Facebook/lge;FBBD/FEVER;FBDV/FEVER;FBSV/{versi_android};FBCA/armeabi-v7a:armeabi;FBDM/"+"{density=2.75,width=1080,height=2179};FB_FW/1;])"
 	if ua in ugent:pass
