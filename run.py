@@ -49,7 +49,10 @@ for z in range(200):
 	versi_chrome = str(random.randint(300,325))+".0.0."+str(random.randint(1,8))+"."+str(random.randint(40,150))
 	device = random.choice(["Nexus 5 Build/NHG47L","Nexus 7 Build/LMY47V","Nexus 5X Build/N4F26T","Nexus 6P Build/OPM5.171019.014","Nexus 5X Build/OPR6.170623.023","Nexus 6 Build/OPM5.171019.015","Nexus 5X Build/MMB29K","Nexus 5X Build/OPM6.171019.030.H1"])
 	dev = device.split(" Build/")[0]
-	ua = f"Dalvik/2.1.0 (Linux; U; Android {versi_android}; {device}) [FBAN/MessengerLite;FBAV/{versi_chrome};FBBV/155323366;FBDM/"+"{density=2.0,width=720,height=1360};"+f"FBLC/en_US;FBRV/156625696;FBCR/mt:s;FBMF/Nexus;FBBD/Nexus;FBPN/com.facebook.mlite;FBDV/{dev};FBSV/{versi_android};FBOP/19;FBCA/armeabi-v7a:armeabi;]"
+	az = "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"
+	build = f"{random.choice(az)}{random.choice(az)}{random.choice(az)}{random.randint(10, 90)}{random.choice(az)}"
+	ua = f"Mozilla/5.0 (Linux; Android {versi_android}; LG-F320L Build/{build}; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/{versi_chrome} Mobile Safari/537.36[FBAN/EMA;FBLC/en_US;FBAV/309.0.0.16.{str(random.randint(100000, 900000))};]"
+	#ua = f"Dalvik/2.1.0 (Linux; U; Android {versi_android}; U FEEL LITE Build/MRA58K) [FBAN/MessengerLite;FBAV/{versi_chrome};FBBV/155323366;FBDM/"+"{density=2.0,width=720,height=1360};"+f"FBLC/en_US;FBRV/156625696;FBCR/mt:s;FBMF/Wiko U Feel Lite;FBBD/Wiko U Feel Lite;FBPN/com.facebook.mlite;FBDV/U FEEL LITE;FBSV/{versi_android};FBOP/19;FBCA/armeabi-v7a:armeabi;]"
 #[FBAN/MessengerLite;FBAV/{versi_chrome};FBBV/193013937;FBDM/"+"{density=2.625,width=1080,height=1794};"+f"FBLC/en_US;FBRV/0;FBCR/Verizon;FBMF/Google;FBBD/google;FBPN/com.facebook.mlite;FBDV/Pixel 2;FBSV/{versi_android};FBBK/1;FBOP/1;FBCA/arm64-v8a:;
 #FBDM/"+"{density=1.5,width=540,height=960};"+"FBLC/en_US;FBRV/183119516;FBCR/TM;FBMF/vivo;FBBD/vivo;FBPN/com.facebook.mlite;FBDV/vivo 1606;FBSV/{versi_android};FBOP/1;FBCA/armeabi-v7a:armeabi;]"
 #[FBAN/MessengerLite;FBAV/{versi_chrome};FBPN/com.facebook.mlite;FBLC/en_US;FBBV/{versi_app};FBCR/Airtel;FBMF/Facebook/lge;FBBD/FEVER;FBDV/FEVER;FBSV/{versi_android};FBCA/armeabi-v7a:armeabi;FBDM/"+"{density=2.75,width=1080,height=2179};FB_FW/1;])"
