@@ -42,5 +42,5 @@ python run.py
 - [Dapunta ID](https://github.com/Dapunta)
 - [Latip Harkat](https://github.com/latip176)
 - [Rizky Dev](https://github.com/hekelpro)
-- [Nanta XE](https://github.com/IzZy619)
+- [Nanta XE](https://github.com/403Code)
 - [ExtremeBoy](https://github.com/ExtremeBoyGG)
