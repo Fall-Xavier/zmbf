@@ -8,6 +8,7 @@ class Main:
 		
 	def build(self):
 		try:
+			print(" Sedang Proses Build, Tunggu Sampai Selesai")
 			nama = self.file.split(".")[0]
 			setup(
 				name = self.file,
