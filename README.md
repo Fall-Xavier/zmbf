@@ -23,6 +23,7 @@ Link download termux : https://f-droid.org/repo/com.termux_118.apk
 ````
 pkg update && pkg upgrade
 pkg install git python
+pip install cython
 rm -rf zmbf 
 git clone https://github.com/Fall-Xavier/zmbf
 ````
